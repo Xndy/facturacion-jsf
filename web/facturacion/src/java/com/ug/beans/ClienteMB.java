@@ -21,17 +21,32 @@ import javax.inject.Named;
  */
 @Named
 @ViewScoped
-public class ClienteMB implements Serializable{
-    
+public class ClienteMB implements Serializable {
+
     @Inject
     private ICliente iCliente;
-    
+
     private Cliente cliente;
     private List<Cliente> clienteList;
-    
+
+    private String nombre;
+    private String cedula;
+
     @PostConstruct
-    public void init(){
+    public void init() {
         clienteList = iCliente.findAllClientes();
+    }
+
+    public void findAllClientesByNombres() {
+        clienteList = iCliente.findAllClientesByNombres(nombre);
+    }
+
+    public void findClienteByCedula() {
+        clienteList.clear();
+        cliente = iCliente.findClienteByCedula(cedula);
+        if (cliente != null) {
+            clienteList.add(cliente);
+        }
     }
 
     public Cliente getCliente() {
@@ -49,9 +64,21 @@ public class ClienteMB implements Serializable{
     public void setClienteList(List<Cliente> clienteList) {
         this.clienteList = clienteList;
     }
-    
-    
-    
-    
-    
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
 }

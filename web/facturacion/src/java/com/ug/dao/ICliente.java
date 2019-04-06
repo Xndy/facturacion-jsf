@@ -16,4 +16,13 @@ public interface ICliente {
     
     public List<Cliente> findAllClientes();
     
+    
+    public List<Cliente> findAllClientesByNombres(String nombre);
+    
+    
+    public Cliente findClienteByCedula(String cedula);
+
+
+    
+    
 }

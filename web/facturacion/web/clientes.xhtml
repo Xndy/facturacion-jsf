@@ -13,7 +13,27 @@
             <center>
                 <h1>Listado de Clientes</h1>
             </center>
-            <p:dataTable value="#{clienteMB.clienteList}" var="cliente" >
+            
+            <p:outputLabel value="Escriba un nombre" />
+            <p:inputText value="#{clienteMB.nombre}"  />
+            <p:commandButton actionListener="#{clienteMB.findAllClientesByNombres()}" update="dtClientes" value="Consultar por nombres"/>
+            
+            
+            <br></br>
+            <br></br>
+            <br></br>
+            
+            
+            <p:outputLabel value="Escriba un numero de cedula" />
+            <p:inputText value="#{clienteMB.cedula}"  />
+            <p:commandButton actionListener="#{clienteMB.findClienteByCedula()}" update="dtClientes" value="Consultar por Cedula"/>
+            
+            
+            <br></br>
+            <br></br>
+            <br></br>
+            
+            <p:dataTable id="dtClientes" value="#{clienteMB.clienteList}" var="cliente" >
 
                 <p:column headerText="Cedula">
                     <h:outputText value="#{cliente.cedula}" />
@@ -38,6 +58,8 @@
                 
             </p:dataTable>
 
+            
+            
 
         </h:form>
 
