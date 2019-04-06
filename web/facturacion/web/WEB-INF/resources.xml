@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <Resource id="facturacion" type="javax.sql.DataSource">#Fri Apr 05 15:33:53 COT 2019
+jdbcDriver=org.postgresql.Driver
+password=1234
+userName=postgres
+jdbcUrl=jdbc\:postgresql\://127.0.0.1\:5432/facturacion
+</Resource>
+</resources>
